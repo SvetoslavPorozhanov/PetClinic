@@ -1,1 +1,145 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    box-sizing: border-box;
+}
+
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("./assets/background.jpg");
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
+app-header{
+    background-color: rgba(226, 214, 214, 0.575);
+    margin: 0 0 2em 0;
+    padding: 1.5em;
+}
+
+h1{
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 0.3em;
+    color: rgb(155, 15, 15);
+}
+
+
+
+app-patients-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+li{
+    list-style: none;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+.pet_text{
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.pet {
+    background-color: white;
+    display: block;
+    width: 15em;
+    height: 16em;
+    margin: 0 10px 10px 0;
+}
+
+.pet:hover{
+    background-color: rgba(155, 15, 15, 0.11); 
+    color: white;
+}
+
+.pet_image{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.image{
+    width: 100%;
+    height: 70%;
+}
+
+.row_appoitments{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+footer app-footer div {
+    background-color: rgb(140, 14, 14);
+    color: rgb(218, 197, 197);
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul{
+    margin: 2em 5em 2em 5em;
+}
+
+footer ul li {
+    margin: 0.5em 0 0 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+
+
+/* responsive */
+
+@media only screen and (max-width: 1236px) {
+    .row_appoitments {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main app-patients-list {
+        display: block;
+    }
+
+    footer app-footer div {
+        display: block;
+        padding: 50px;
+        text-align: center;
+    }
+
+    footer app-footer div {
+        display: block;
+        padding-top: 0px;
+        text-align: center;
+    }
+
+    .pet {
+        margin: 30px auto !important;
+    }
+
+    header app-header h1 {
+        font-size: 2em;
+    }
+
+    header app-header h3 {
+        font-size: 1em;
+    }
+}
