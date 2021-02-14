@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AppointmentService } from '../appointment.service';
+import { IPet } from '../interfaces';
 
 @Component({
   selector: 'app-patients-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsListComponent implements OnInit {
 
-  constructor() { }
+  petList: IPet[];
+
+  constructor(private appoitmentService: AppointmentService) { }
 
   ngOnInit(): void {
+    this.appoitmentService.loadAppointmentsList().subscribe(petList => {
+      this.petList = petList;
+    });
   }
 
 }
