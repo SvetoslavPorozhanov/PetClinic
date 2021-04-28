@@ -3,34 +3,35 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { PatientsListComponent } from './patients-list/patients-list.component';
-import { UserService } from './user.service';
-import { storageServiceProvider } from './storage.service';
-import { AppointmentService } from './appointment.service';
+
+import { AppointmentService } from './core/appointment.service';
 import { HomeComponent } from './home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    PatientsListComponent,
     HomeComponent
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
   ],
   providers: [
-    UserService,
     AppointmentService,
-    storageServiceProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
+  ]
 })
 export class AppModule { }

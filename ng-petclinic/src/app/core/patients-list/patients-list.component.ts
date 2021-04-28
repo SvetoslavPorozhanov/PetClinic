@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
-import { IPet } from '../interfaces';
+import { IPet } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-patients-list',

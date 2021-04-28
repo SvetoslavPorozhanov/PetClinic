@@ -85,19 +85,19 @@ ul{
 
 
 
-footer app-footer div {
+app-footer div {
     background-color: rgb(140, 14, 14);
     color: rgb(218, 197, 197);
-    margin-top: 2em;
+    
     display: flex;
     justify-content: center;
 }
 
-footer ul{
+app-footer ul{
     margin: 2em 5em 2em 5em;
 }
 
-footer ul li {
+app-footer ul li {
     margin: 0.5em 0 0 0;
     font-size: 1.5em;
     font-weight: bold;
