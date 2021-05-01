@@ -1,0 +1,50 @@
+<div class="new-pet-border">
+  <div class="header-background">
+    <span>New Pet</span>
+  </div>
+  <form>
+    <div class="new-pet-fullname">
+      <label for="petName">Fullname <span class="red">*</span></label>
+      <input type="text" name="petName" id="petName">
+      <p class="error">
+        Pet name is required.
+      </p>
+      <p class="error">
+        Pet name must be at least 5 characters long.
+      </p>
+    </div>
+    <div class="new-pet-image">
+      <label for="petImage">Image <span class="red">*</span></label>
+      <input type="text" name="petImage" id="petImage">
+      <p class="error">
+        Pet image is required.
+      </p>
+    </div>
+    <div class="new-pet-kind">
+      <label for="petKind">Kind <span class="red">*</span></label>
+      <input type="text" name="petKind" id="petKind">
+      <p class="error">
+        Pet kind is required.
+      </p>
+    </div>
+    <div class="new-pet-appointment-time">
+      <label for="petAppointmentTime">Appointment Time <span class="red">*</span></label>
+      <input type="text" name="petAppointmentTime" id="petAppointmentTime">
+    </div>
+    <div class="new-pet-owner">
+      <label for="petOwner">Owner <span class="red">*</span></label>
+      <select id="petOwner">
+        <option value="">None</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+    <div class="new-pet-buttons">
+      <button routerLink="/pet" class="cancel">Back</button>
+      <button class="public">Create</button>
+    </div>
+
+  </form>
+</div>

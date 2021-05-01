@@ -10,10 +10,19 @@ function getAllPets(req, res, next) {
         .catch(next);
 }
 
-function createPet(req, res, next) {
-    const { fullName, kind, imageUrl, petOwnerId } = req.body;
+function getPet(req, res, next) {
+    const { petId } = req.params;
 
-    petModel.create({ fullName, kind, imageUrl, ownerId: petOwnerId })
+    petModel.findById(petId)
+        .populate('ownerId')
+        .then(pet => res.status(200).json(pet))
+        .catch(next);
+}
+
+function createPet(req, res, next) {
+    const { fullName, kind, imageUrl, petOwnerId, appointmentTime } = req.body;
+
+    petModel.create({ fullName, kind, imageUrl, ownerId: petOwnerId, appointmentTime })
         .then(pet => res.status(200).json(pet))
         .catch(next);
 }
@@ -59,6 +68,7 @@ function deletePet(req, res, next) {
 
 module.exports = {
     getAllPets,
+    getPet,
     createPet,
     editPet,
     deletePet,

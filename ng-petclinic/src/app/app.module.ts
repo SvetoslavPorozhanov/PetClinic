@@ -12,18 +12,22 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PetModule } from './pet/pet.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     CoreModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    PetModule
   ],
   providers: [
     AppointmentService,

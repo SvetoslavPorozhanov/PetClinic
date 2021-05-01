@@ -1,0 +1,42 @@
+<ul>
+    <li>
+        <a routerLink="/pet/new">New Pet</a>
+    </li>
+    <div *ngIf="petList">
+        <div *ngFor="let pet of petList">
+            <li class="row_appointments">
+                <section class="pet">
+                    <div class="pet_text">
+                        <h3>Pet name:</h3>
+                        <h3>{{pet.fullName}}</h3>
+                    </div>
+                    <div class="image">
+                        <img class="pet_image" src="{{pet.imageUrl}}" alt="#">
+                    </div>
+                </section>
+                <section class="owner">
+                    <div class="owner_text">
+                        <h3>Owner's name:</h3>
+                        <h3>{{pet.ownerId.fullName}}</h3>
+                    </div>
+                    <div class="image">
+                        <img class="owner_image" src="{{pet.ownerId.imageUrl}}" alt="#">
+                    </div>
+                </section>
+                <section class="appointment">
+                    <div class="appoitment_text">
+                        <h3>Appointment time:</h3>
+                        <h3>{{pet.appointmentTime}}</h3>
+                    </div>
+                </section>
+            </li>
+            <li>
+                <a routerLink="/pet/detail/{{pet._id}}">Pet Details</a>
+            </li>
+        </div>
+        <div *ngIf="petList.length === 0">No Pets!</div>
+    </div>
+    <div *ngIf="!petList">
+        Loading...
+    </div>
+</ul>

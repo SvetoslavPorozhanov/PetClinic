@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
 import { storageServiceProvider } from './storage.service';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     storageServiceProvider,
+    AuthGuard
   ],
   exports: [
     HeaderComponent,
