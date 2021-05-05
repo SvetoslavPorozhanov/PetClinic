@@ -3,36 +3,36 @@
     <div class="header-background">
       <span>Pet Details</span>
     </div>
-    <form>
-      <div class="pet-fullname">
-        <p>Fullname: {{pet.fullName}}</p>
-      </div>
-      <div class="pet-image">
-        <img src="{{pet.imageUrl}}">
-      </div>
-      <div class="pet-kind">
-        <p>Kind: {{pet.kind}}</p>
-      </div>
-      <div class="pet-appointment-time">
-        <p>Appointment Time: {{pet.appointmentTime}}</p>
-      </div>
-      <div class="pet-owner">
-        <label for="petOwner">Owner <span class="red">*</span></label>
-        <select id="petOwner">
-          <option value="">None</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-      </div>
-      <div class="pet-buttons">
-        <button routerLink="/pet" class="cancel">Back</button>
-        <button class="public">Edit</button>
-      </div>
-  
-    </form>
+    <div class="pet-fullname">
+      <p>Fullname: {{pet.fullName}}</p>
+    </div>
+    <div class="pet-image">
+      <img src="{{pet.imageUrl}}">
+    </div>
+    <div class="pet-kind">
+      <p>Kind: {{pet.kind}}</p>
+    </div>
+    <div *ngIf="pet.appointmentTime" class="pet-appointment-time">
+      <p>Appointment Time: {{pet.appointmentTime}}</p>
+    </div>
+    <div *ngIf="!pet.appointmentTime" class="pet-appointment-time">
+      <p>No appointment</p>
+    </div>
+    <div class="pet-owner">
+      <label for="petOwner">Owner <span class="red">*</span></label>
+      <select id="petOwner">
+        <option value="">None</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+    <div class="pet-buttons">
+      <button routerLink="/pet" class="cancel">Back</button>
+      <button class="public" routerLink="/pet/edit/{{pet._id}}">Edit</button>
+    </div>
   </div>
-
 </div>
+
 <app-loader [isLoading]="!pet"></app-loader>

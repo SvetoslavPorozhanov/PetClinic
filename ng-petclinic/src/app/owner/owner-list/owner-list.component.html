@@ -1,0 +1,38 @@
+<ul>
+  <li>
+    <a routerLink="/owner/new">New Owner</a>
+  </li>
+  <div *ngIf="ownerList">
+    <div *ngFor="let owner of ownerList">
+      <li class="row_appointments">
+        <section class="pet">
+          <div class="pet_text">
+            <h3>Owner fullname:</h3>
+            <h3>{{owner.fullName}}</h3>
+          </div>
+          <div class="image">
+            <img class="pet_image" src="{{owner.imageUrl}}" alt="#">
+          </div>
+          <div class="pet_text">
+            <h3>Owner email:</h3>
+            <h3>{{owner.email}}</h3>
+          </div>
+          <div class="pet_text">
+            <h3>Owner telephone:</h3>
+            <h3>{{owner.tel}}</h3>
+          </div>
+        </section>
+      </li>
+      <li>
+        <a routerLink="/owner/detail/{{owner._id}}">Owner Details</a>
+      </li>
+      <li>
+        <a routerLink="/owner/delete/{{owner._id}}">Delete Owner</a>
+      </li>
+    </div>
+    <div *ngIf="ownerList.length === 0">No Owners!</div>
+  </div>
+  <div *ngIf="!ownerList">
+    Loading...
+  </div>
+</ul>

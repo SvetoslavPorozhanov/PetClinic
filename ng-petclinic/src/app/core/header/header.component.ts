@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../user/user.service';
 
 @Component({
@@ -6,20 +7,24 @@ import { UserService } from '../../user/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+export class HeaderComponent implements OnDestroy {
 
-export class HeaderComponent {
+  hideNavigation = false;
+
 
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
-  constructor(public userService: UserService) { }
-
-  // loginHandler(): void {
-  //   this.userService.login();
-  // }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   logoutHandler(): void {
-    this.userService.logout();
+    this.userService.logout().subscribe(() => this.router.navigate(['/user/login']));
+  }
+
+  ngOnDestroy(): void {
   }
 }

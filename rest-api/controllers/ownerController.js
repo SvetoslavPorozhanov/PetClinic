@@ -29,10 +29,10 @@ function createOwner(req, res, next) {
 
 function editOwner(req, res, next) {
     const { ownerId } = req.params;
-    const { ownerTel, ownerFullName, ownerEmail, ownerImageUrl } = req.body;
+    const { tel, fullName, email, imageUrl } = req.body;
 
 
-    ownerModel.findOneAndUpdate({ _id: ownerId }, { tel: ownerTel, fullName: ownerFullName, email: ownerEmail, imageUrl: ownerImageUrl }, { new: true })
+    ownerModel.findOneAndUpdate({ _id: ownerId }, { tel, fullName, email, imageUrl }, { new: true })
         .then(updatedOwner => {
             res.status(200).json(updatedOwner);
         })
@@ -40,11 +40,11 @@ function editOwner(req, res, next) {
 }
 
 function deleteOwner(req, res, next) {
-    const { petId, ownerId } = req.params;
+    const { ownerId } = req.params;
 
     Promise.all([
         ownerModel.findOneAndDelete({ _id: ownerId }),
-        petModel.findOneAndUpdate({ _id: petId }, { ownerId: null }),
+        // petModel.findOneAndUpdate({ _id: petId }, { ownerId: null }),
     ])
         .then(([deletedOne, _]) => {
             if (deletedOne) {

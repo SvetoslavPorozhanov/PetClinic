@@ -1,0 +1,46 @@
+<div class="pet-content" *ngIf="owner">
+  <div class="pet-border">
+    <div class="header-background">
+      <span>Owner Details</span>
+    </div>
+    <div class="pet-fullname">
+      <p>Fullname: {{owner.fullName}}</p>
+    </div>
+    <div class="pet-image">
+      <img src="{{owner.imageUrl}}">
+    </div>
+    <div class="pet-fullname">
+      <p>Email: {{owner.email}}</p>
+    </div>
+    <div class="pet-fullname">
+      <p>Telephone: {{owner.tel}}</p>
+    </div>
+    <div class="header-background">
+        <span>Pet Details</span>
+      </div>
+    <div *ngFor="let pet of owner.pets">
+      <div class="pet-fullname">
+        <p>Fullname: {{pet.fullName}}</p>
+      </div>
+      <div class="pet-image">
+        <img src="{{pet.imageUrl}}">
+      </div>
+      <div class="pet-kind">
+        <p>Kind: {{pet.kind}}</p>
+      </div>
+      <div *ngIf="pet.appointmentTime" class="pet-appointment-time">
+        <p>Appointment Time: {{pet.appointmentTime}}</p>
+      </div>
+      <div *ngIf="!pet.appointmentTime" class="pet-appointment-time">
+        <p>No appointment</p>
+      </div>
+    </div>
+    <div *ngIf="owner.pets.length === 0">No Pets!</div>
+    <div class="pet-buttons">
+      <button routerLink="/owner" class="cancel">Back</button>
+      <button class="public" routerLink="/owner/edit/{{owner._id}}">Edit</button>
+    </div>
+  </div>
+</div>
+
+<app-loader [isLoading]="!owner"></app-loader>

@@ -21,8 +21,7 @@ const petSchema = new mongoose.Schema({
     },
     kind: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     appointmentTime: {
         type: String,

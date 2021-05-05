@@ -1,0 +1,39 @@
+<div class="new-pet-border">
+  <div class="header-background">
+    <span>New Owner</span>
+  </div>
+  <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+    <div class="new-pet-fullname">
+      <label for="fullName">Fullname <span class="red">*</span></label>
+      <input #fullName="ngModel" type="text" name="fullName" id="fullName" ngModel required minlength="5">
+      <p class="error" *ngIf="fullName.touched && fullName.errors?.required">
+        Owner fullname is required.
+      </p>
+      <p class="error" *ngIf="fullName.touched && fullName.errors?.minlength">
+        Owner fullname must be at least 5 characters long.
+      </p>
+    </div>
+    <div class="new-pet-image">
+      <label for="imageUrl">Image <span class="red">*</span></label>
+      <input #imageUrl="ngModel" type="text" name="imageUrl" id="imageUrl" ngModel required>
+      <p class="error" *ngIf="imageUrl.touched && imageUrl.errors?.required">
+        Owner image is required.
+      </p>
+    </div>
+    <div class="new-pet-kind">
+      <label for="kind">Email <span class="red">*</span></label>
+      <input #email="ngModel" type="text" name="email" id="email" ngModel required>
+      <p class="error" *ngIf="email.touched && email.errors?.required">
+        Owner email is required.
+      </p>
+    </div>
+    <div class="new-pet-kind">
+      <label for="tel">Telephone <span class="red">*</span></label>
+      <input #tel="ngModel" type="text" name="tel" id="tel" ngModel>
+    </div>
+    <div class="new-pet-buttons">
+      <button type="button" routerLink="/owner" class="cancel">Back</button>
+      <button class="public">Create</button>
+    </div>
+  </form>
+</div>

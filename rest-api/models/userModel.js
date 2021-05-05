@@ -11,11 +11,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    fullName: {
+    username: {
         type: String,
         required: true,
         unique: true,
-        minlength: [5, 'Fullname should be at least 5 characters'],
+        minlength: [5, 'Username should be at least 5 characters'],
         validate: {
             validator: function (v) {
                 return /[a-zA-Z0-9]+/g.test(v);

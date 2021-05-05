@@ -2,38 +2,38 @@
   <div class="header-background">
     <span>New Pet</span>
   </div>
-  <form>
+  <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
     <div class="new-pet-fullname">
-      <label for="petName">Fullname <span class="red">*</span></label>
-      <input type="text" name="petName" id="petName">
-      <p class="error">
-        Pet name is required.
+      <label for="fullName">Fullname <span class="red">*</span></label>
+      <input #fullName="ngModel" type="text" name="fullName" id="fullName" ngModel required minlength="5">
+      <p class="error" *ngIf="fullName.touched && fullName.errors?.required">
+        Pet fullname is required.
       </p>
-      <p class="error">
-        Pet name must be at least 5 characters long.
+      <p class="error" *ngIf="fullName.touched && fullName.errors?.minlength">
+        Pet fullname must be at least 5 characters long.
       </p>
     </div>
     <div class="new-pet-image">
-      <label for="petImage">Image <span class="red">*</span></label>
-      <input type="text" name="petImage" id="petImage">
-      <p class="error">
+      <label for="imageUrl">Image <span class="red">*</span></label>
+      <input #imageUrl="ngModel" type="text" name="imageUrl" id="imageUrl" ngModel required>
+      <p class="error" *ngIf="imageUrl.touched && imageUrl.errors?.required">
         Pet image is required.
       </p>
     </div>
     <div class="new-pet-kind">
-      <label for="petKind">Kind <span class="red">*</span></label>
-      <input type="text" name="petKind" id="petKind">
-      <p class="error">
+      <label for="kind">Kind <span class="red">*</span></label>
+      <input #kind="ngModel" type="text" name="kind" id="kind" ngModel required>
+      <p class="error" *ngIf="kind.touched && kind.errors?.required">
         Pet kind is required.
       </p>
     </div>
     <div class="new-pet-appointment-time">
-      <label for="petAppointmentTime">Appointment Time <span class="red">*</span></label>
-      <input type="text" name="petAppointmentTime" id="petAppointmentTime">
+      <label for="appointmentTime">Appointment Time <span class="red">*</span></label>
+      <input #appointmentTime="ngModel" type="text" name="appointmentTime" id="appointmentTime" ngModel>
     </div>
     <div class="new-pet-owner">
-      <label for="petOwner">Owner <span class="red">*</span></label>
-      <select id="petOwner">
+      <label for="petOwnerId">Owner <span class="red">*</span></label>
+      <select id="petOwnerId">
         <option value="">None</option>
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
@@ -42,7 +42,7 @@
       </select>
     </div>
     <div class="new-pet-buttons">
-      <button routerLink="/pet" class="cancel">Back</button>
+      <button type="button" routerLink="/pet" class="cancel">Back</button>
       <button class="public">Create</button>
     </div>
 

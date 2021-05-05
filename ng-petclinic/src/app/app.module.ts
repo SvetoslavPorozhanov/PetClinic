@@ -14,6 +14,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PetModule } from './pet/pet.module';
+import { OwnerModule } from './owner/owner.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PetModule } from './pet/pet.module';
     HttpClientModule,
     AppRoutingModule,
     UserModule,
-    PetModule
+    PetModule,
+    OwnerModule
   ],
   providers: [
     AppointmentService,

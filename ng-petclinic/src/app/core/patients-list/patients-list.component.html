@@ -11,7 +11,7 @@
                         <img class="pet_image" src="{{pet.imageUrl}}" alt="#">
                     </div>
                 </section>
-                <section class="owner">
+                <section *ngIf="pet.ownerId" class="owner">
                     <div class="owner_text">
                         <h3>Owner's name:</h3>
                         <h3>{{pet.ownerId.fullName}}</h3>
@@ -20,10 +20,20 @@
                         <img class="owner_image" src="{{pet.ownerId.imageUrl}}" alt="#">
                     </div>
                 </section>
-                <section class="appointment">
+                <section *ngIf="!pet.ownerId" class="owner">
+                    <div class="owner_text">
+                        <h3>No owner</h3>
+                    </div>
+                </section>
+                <section *ngIf="pet.appointmentTime" class="appointment">
                     <div class="appoitment_text">
                         <h3>Appointment time:</h3>
                         <h3>{{pet.appointmentTime}}</h3>
+                    </div>
+                </section>
+                <section *ngIf="!pet.appointmentTime" class="appointment">
+                    <div class="appoitment_text">
+                        <h3>No Appointment</h3>
                     </div>
                 </section>
             </li>

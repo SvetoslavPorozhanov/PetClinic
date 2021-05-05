@@ -7,17 +7,23 @@ import { PetRouterModule } from './pet-routing.module';
 import { PetDetailComponent } from './detail/pet-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewPetComponent } from './new/new-pet.component';
+import { FormsModule } from '@angular/forms';
+import { PetEditComponent } from './edit/pet-edit.component';
+import { PetDeleteComponent } from './delete/pet-delete.component';
 
 @NgModule({
   declarations: [
     PetListComponent,
     PetDetailComponent,
-    NewPetComponent
+    NewPetComponent,
+    PetEditComponent,
+    PetDeleteComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    PetRouterModule
+    PetRouterModule,
+    FormsModule
   ],
   providers: [
     PetService

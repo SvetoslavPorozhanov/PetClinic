@@ -1,0 +1,41 @@
+<div class="pet-content" *ngIf="owner">
+  <div class="pet-border">
+    <div class="header-background">
+      <span>Edit Owner</span>
+    </div>
+    <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+      <div class="flex">
+        <p>Fullname: </p>
+        <input #fullName="ngModel" type="text" name="fullName" id="fullName" [ngModel]="owner.fullName" ngModel
+          required minlength="5">
+        <p class="error" *ngIf="fullName.touched && fullName.errors?.required">
+          Fullname is required.
+        </p>
+        <p class="error" *ngIf="fullName.touched && fullName.errors?.minlength">
+          Fullname must be at least 5 characters long.
+        </p>
+      </div>
+      <div class="flex">
+        <p>Image: </p>
+        <input #imageUrl="ngModel" type="text" name="imageUrl" id="imageUrl" ngModel required
+          [ngModel]="owner.imageUrl">
+        <p class="error" *ngIf="imageUrl.touched && imageUrl.errors?.required">
+          Image is required.
+        </p>
+      </div>
+      <div class="flex">
+        <p>Email: </p>
+        <input #email="ngModel" type="text" name="email" id="email" ngModel required [ngModel]="owner.email">
+        <p class="error" *ngIf="email.touched && email.errors?.required">
+          Email is required.
+        </p>
+      </div>
+      <div class="flex">
+        <p>Telephone: </p>
+        <input type="text" name="tel" id="tel" [ngModel]="owner.tel">
+      </div>
+      <button type="button" class="red-button" routerLink="/owner/detail/{{owner._id}}">Cancel</button>
+      <button class="green-button">Save</button>
+    </form>
+  </div>
+</div>

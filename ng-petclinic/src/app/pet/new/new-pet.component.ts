@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PetService } from '../pet.service';
 
 @Component({
   selector: 'app-new-pet',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPetComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private petService: PetService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  submitHandler(data: any): void {
+    this.petService.savePet(data)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/pet']);
+        },
+        error: (err) => {
+
+        }
+      });
+  }
 }
