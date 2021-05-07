@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<ng-template #content>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div>LOADING...</div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="(isReady$ | async) ? content : loading"></ng-container>

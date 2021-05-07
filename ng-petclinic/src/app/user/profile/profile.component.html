@@ -1,15 +1,15 @@
 <ng-template #defaultMode>
   <div class="flex">
     <p>Username: </p>
-    <p>{{currentUser.username}}</p>
+    <p>{{(currentUser$ | async)?.username}}</p>
   </div>
   <div class="flex">
     <p>Email: </p>
-    <p>{{currentUser.email}}</p>
+    <p>{{(currentUser$ | async)?.email}}</p>
   </div>
   <div class="flex">
     <p>Phone: </p>
-    <p>+359 {{currentUser.tel}}</p>
+    <p>+359 {{(currentUser$ | async)?.tel}}</p>
   </div>
   <button class="edit-button" (click)="toggleEditMode()">Edit</button>
 </ng-template>
@@ -18,7 +18,7 @@
   <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
     <div class="flex">
       <p>Username: </p>
-      <input #username="ngModel" type="text" name="username" id="username" [ngModel]="currentUser.username" ngModel required minlength="5">
+      <input #username="ngModel" type="text" name="username" id="username" [ngModel]="(currentUser$ | async)?.username" ngModel required minlength="5">
       <p class="error" *ngIf="username.touched && username.errors?.required">
         Username is required.
       </p>
@@ -28,7 +28,7 @@
     </div>
     <div class="flex">
       <p>Email: </p>
-      <input #email="ngModel" type="email" name="email" id="email" [ngModel]="currentUser.email" ngModel required email>
+      <input #email="ngModel" type="email" name="email" id="email" [ngModel]="(currentUser$ | async)?.email" ngModel required email>
       <p class="error" *ngIf="email.touched && email.errors?.required">
         Email is required.
       </p>
@@ -42,7 +42,7 @@
         <select name="select-tel" id="select-tel" class="tel">
           <option value="00359">+359</option>
         </select>
-        <input #tel="ngModel" type="text" name="tel" id="tel" value="885 888 888" [ngModel]="currentUser.tel" ngModel required>
+        <input #tel="ngModel" type="text" name="tel" id="tel" value="885 888 888" [ngModel]="(currentUser$ | async)?.tel" ngModel required>
         <p class="error" *ngIf="tel.touched && tel.errors?.required">
           Telephone is required.
         </p>

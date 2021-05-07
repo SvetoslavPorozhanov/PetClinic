@@ -12,6 +12,6 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   loadAppointmentsList(): Observable<IPet[]> {
-    return this.http.get<IPet[]>(`${apiUrl}/pets`);
+    return this.http.get<IPet[]>(`/pets`);
   }
 }

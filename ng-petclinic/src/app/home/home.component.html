@@ -1,7 +1,7 @@
-<div *ngIf="!isLogged" class="welcome">
+<div *ngIf="!(isLogged$ | async)" class="welcome">
     <h3>Welcome!</h3>
     <p>Pet Clinic app is a place, where you can book an appointment for your pet.</p>
-    <div class="logged" *ngIf="!isLogged">
+    <div class="logged">
         <ul>
             <li>
                 <a routerLink="/user/login">
@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div *ngIf="isLogged">
+<div>
     <main>
         <app-patients-list></app-patients-list>
     </main>

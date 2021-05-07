@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { UserModule } from './user/user.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -27,7 +26,6 @@ import { OwnerModule } from './owner/owner.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UserModule,
     PetModule,
     OwnerModule
   ],

@@ -7,6 +7,9 @@ import { PatientsListComponent } from './patients-list/patients-list.component';
 import { storageServiceProvider } from './storage.service';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { appInterceptorProvider } from './app.interceptor';
+import { AuthService } from './auth.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,11 +22,14 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
   ],
   providers: [
     storageServiceProvider,
-    AuthGuard
+    AuthGuard,
+    appInterceptorProvider,
+    AuthService
   ],
   exports: [
     HeaderComponent,

@@ -12,22 +12,22 @@ export class OwnerService {
   constructor(private http: HttpClient) { }
 
   loadOwnerList(): Observable<IOwner[]> {
-    return this.http.get<IOwner[]>(`${apiUrl}/owners`, { withCredentials: true });
+    return this.http.get<IOwner[]>(`/owners`);
   }
 
   loadOwner(id: string): Observable<IOwner> {
-    return this.http.get<IOwner>(`${apiUrl}/owners/${id}`, { withCredentials: true });
+    return this.http.get<IOwner>(`/owners/${id}`);
   }
 
   saveOwner(data: any): Observable<IOwner> {
-    return this.http.post<IOwner>(`${apiUrl}/owners`, data, { withCredentials: true });
+    return this.http.post<IOwner>(`/owners`, data);
   }
 
   updateOwner(data: any, id: string): Observable<IOwner> {
-    return this.http.put<IOwner>(`${apiUrl}/owners/${id}`, data, { withCredentials: true });
+    return this.http.put<IOwner>(`/owners/${id}`, data);
   }
 
   deleteOwner(ownerId: string): Observable<IOwner> {
-    return this.http.delete<IOwner>(`${apiUrl}/owners/${ownerId}`, { withCredentials: true });
+    return this.http.delete<IOwner>(`/owners/${ownerId}`);
   }
 }
