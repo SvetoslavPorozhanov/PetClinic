@@ -1,21 +1,21 @@
-<div class="pet-content" *ngIf="pet">
+<div class="pet-content" *ngIf="!(isLoading$ | async)">
   <div class="pet-border">
     <div class="header-background">
       <span>Pet Details</span>
     </div>
     <div class="pet-fullname">
-      <p>Fullname: {{pet.fullName}}</p>
+      <p>Fullname: {{(pet$ | async).fullName}}</p>
     </div>
     <div class="pet-image">
-      <img src="{{pet.imageUrl}}">
+      <img src="{{(pet$ | async).imageUrl}}">
     </div>
     <div class="pet-kind">
-      <p>Kind: {{pet.kind}}</p>
+      <p>Kind: {{(pet$ | async).kind}}</p>
     </div>
-    <div *ngIf="pet.appointmentTime" class="pet-appointment-time">
-      <p>Appointment Time: {{pet.appointmentTime}}</p>
+    <div *ngIf="(pet$ | async).appointmentTime" class="pet-appointment-time">
+      <p>Appointment Time: {{(pet$ | async).appointmentTime}}</p>
     </div>
-    <div *ngIf="!pet.appointmentTime" class="pet-appointment-time">
+    <div *ngIf="!(pet$ | async).appointmentTime" class="pet-appointment-time">
       <p>No appointment</p>
     </div>
     <div class="pet-owner">
@@ -30,9 +30,9 @@
     </div>
     <div class="pet-buttons">
       <button routerLink="/pet" class="cancel">Back</button>
-      <button class="public" routerLink="/pet/edit/{{pet._id}}">Edit</button>
+      <button class="public" routerLink="/pet/edit/{{(pet$ | async)._id}}">Edit</button>
     </div>
   </div>
 </div>
 
-<app-loader [isLoading]="!pet"></app-loader>
+<app-loader [isLoading]="isLoading$ | async"></app-loader>

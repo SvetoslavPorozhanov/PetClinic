@@ -14,6 +14,11 @@ import { FooterComponent } from './core/footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PetModule } from './pet/pet.module';
 import { OwnerModule } from './owner/owner.module';
+import { reducers } from './+store';
+import { StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { OwnerModule } from './owner/owner.module';
     HttpClientModule,
     AppRoutingModule,
     PetModule,
-    OwnerModule
+    OwnerModule,
+    EffectsModule.forRoot(),
+    StoreModule.forRoot(reducers),
+    environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [
     AppointmentService,

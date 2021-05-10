@@ -10,6 +10,10 @@ import { NewPetComponent } from './new/new-pet.component';
 import { FormsModule } from '@angular/forms';
 import { PetEditComponent } from './edit/pet-edit.component';
 import { PetDeleteComponent } from './delete/pet-delete.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './+store';
+import { EffectsModule } from '@ngrx/effects';
+import { PetListEffects } from './+store/effects';
 
 @NgModule({
   declarations: [
@@ -23,10 +27,15 @@ import { PetDeleteComponent } from './delete/pet-delete.component';
     CommonModule,
     SharedModule,
     PetRouterModule,
-    FormsModule
+    FormsModule,
+    EffectsModule.forFeature([
+      PetListEffects
+    ]),
+    StoreModule.forFeature('pet', reducers)
   ],
   providers: [
-    PetService
+    PetService,
+    PetListEffects
   ],
   exports: [
     PetListComponent,

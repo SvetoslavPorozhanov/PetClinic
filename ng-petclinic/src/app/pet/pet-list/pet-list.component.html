@@ -2,8 +2,8 @@
     <li>
         <a routerLink="/pet/new">New Pet</a>
     </li>
-    <div *ngIf="petList">
-        <div *ngFor="let pet of petList">
+    <div *ngIf="petList$ | async">
+        <div *ngFor="let pet of (petList$ | async)">
             <li class="row_appointments">
                 <section class="pet">
                     <div class="pet_text">
@@ -53,9 +53,9 @@
                 <a routerLink="/pet/delete/{{pet._id}}">Delete Pet</a>
             </li>
         </div>
-        <div *ngIf="petList.length === 0">No Pets!</div>
+        <div *ngIf="(petList$ | async).length === 0">No Pets!</div>
     </div>
-    <div *ngIf="!petList">
+    <div *ngIf="!(petList$ | async)">
         Loading...
     </div>
 </ul>

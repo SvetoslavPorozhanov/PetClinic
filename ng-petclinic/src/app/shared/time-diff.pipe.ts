@@ -21,19 +21,19 @@ export class TimeDiffPipe implements PipeTransform {
 
     const rtf = new Intl.RelativeTimeFormat(this.locale, { numeric: 'auto' });
 
-    if (left < msPerMinute) {
+    if (left < msPerMinute && left > -msPerMinute) {
       return rtf.format(Math.floor(left / 1000), 'seconds');
     }
-    if (left < msPerHour) {
+    if (left < msPerHour && left > -msPerHour) {
       return rtf.format(Math.floor(left / msPerMinute), 'minutes');
     }
-    if (left < msPerDay) {
+    if (left < msPerDay && left > -msPerDay) {
       return rtf.format(Math.floor(left / msPerHour), 'hours');
     }
-    if (left < msPerMonth) {
+    if (left < msPerMonth && left > -msPerMonth) {
       return rtf.format(Math.floor(left / msPerDay), 'days');
     }
-    if (left < msPerYear) {
+    if (left < msPerYear && left > -msPerYear) {
       return rtf.format(Math.floor(left / msPerMonth), 'months');
     }
     return rtf.format(Math.floor(left / msPerYear), 'years');
