@@ -10,26 +10,33 @@ import { AuthGuard } from './guards/auth.guard';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { EffectsModule } from '@ngrx/effects';
+import { AppointmentListEffects } from './+store/effects';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './+store';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PatientsListComponent,
+    PatientsListComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
+    EffectsModule.forFeature([
+      AppointmentListEffects
+    ]),
+    StoreModule.forFeature('appointment', reducers)
   ],
   providers: [
     storageServiceProvider,
     AuthGuard,
     appInterceptorProvider,
-    AuthService
+    AuthService,
+    AppointmentListEffects
   ],
   exports: [
     HeaderComponent,

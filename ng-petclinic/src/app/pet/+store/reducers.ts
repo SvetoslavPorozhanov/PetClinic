@@ -46,7 +46,7 @@ export const initialPetListState: IPetListState = {
 export const petListReducer = createReducer<IPetListState>(
   initialPetListState,
   on(petListSetPetList, (state, action) => {
-    const isLoading = state.petList !== null ? false : state.isLoading;
+    const isLoading = action.petList !== null ? false : state.isLoading;
     return { ...state, petList: action.petList, isLoading };
   }),
   on(petListSetIsLoading, (state, action) => {

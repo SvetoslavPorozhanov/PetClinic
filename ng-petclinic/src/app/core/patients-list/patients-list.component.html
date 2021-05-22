@@ -1,6 +1,6 @@
 <ul>
-    <div *ngIf="petList">
-        <div *ngFor="let pet of petList">
+    <div *ngIf="appointmentList$ | async">
+        <div *ngFor="let pet of (appointmentList$ | async)">
             <li class="row_appointments">
                 <section class="pet">
                     <div class="pet_text">
@@ -44,9 +44,9 @@
                 </section>
             </li>
         </div>
-        <div *ngIf="petList.length === 0">No Appoitments!</div>
+        <div *ngIf="(appointmentList$ | async).length === 0">No Appoitments!</div>
     </div>
-    <div *ngIf="!petList">
+    <div *ngIf="!(appointmentList$ | async)">
         Loading...
     </div>
 </ul>
