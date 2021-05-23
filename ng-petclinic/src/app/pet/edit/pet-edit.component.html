@@ -1,12 +1,12 @@
-<div class="pet-content" *ngIf="pet">
-  <div class="pet-border">
+<div class="pet-content" *ngIf="!(isLoading$ | async)">
+  <div class="pet-border" *ngIf="(pet$ | async)">
     <div class="header-background">
       <span>Edit Pet</span>
     </div>
     <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
       <div class="flex">
         <p>Fullname: </p>
-        <input #fullName="ngModel" type="text" name="fullName" id="fullName" [ngModel]="pet.fullName" ngModel
+        <input #fullName="ngModel" type="text" name="fullName" id="fullName" [ngModel]="(pet$ | async).fullName" ngModel
           required minlength="5">
         <p class="error" *ngIf="fullName.touched && fullName.errors?.required">
           Fullname is required.
@@ -18,14 +18,14 @@
       <div class="flex">
         <p>Image: </p>
         <input #imageUrl="ngModel" type="text" name="imageUrl" id="imageUrl" ngModel required
-          [ngModel]="pet.imageUrl">
+          [ngModel]="(pet$ | async).imageUrl">
         <p class="error" *ngIf="imageUrl.touched && imageUrl.errors?.required">
           Image is required.
         </p>
       </div>
       <div class="flex">
         <p>Kind: </p>
-        <input #kind="ngModel" type="text" name="kind" id="kind" ngModel required [ngModel]="pet.kind">
+        <input #kind="ngModel" type="text" name="kind" id="kind" ngModel required [ngModel]="(pet$ | async).kind">
         <p class="error" *ngIf="kind.touched && kind.errors?.required">
           Kind is required.
         </p>
@@ -33,20 +33,27 @@
       <div class="flex">
         <p>Appointment Time: </p>
         <input #appointmentTime="ngModel" type="text" name="appointmentTime" id="appointmentTime" ngModel required
-          [ngModel]="pet.appointmentTime">
+          [ngModel]="(pet$ | async).appointmentTime">
       </div>
-      <div class="new-pet-owner">
-        <label for="petOwnerId">Owner <span class="red">*</span></label>
-        <select id="petOwnerId">
+      <!-- <div class="new-pet-owner" *ngIf="!!(pet$ | async).ownerId === true">
+        <label for="ownerId">Owner</label>
+        <select id="ownerId" name="ownerId" [(ngModel)]="ownerId">
+          <option [value]="(pet$ | async).ownerId">{{(pet$ | async).ownerId.fullName}}</option>
           <option value="">None</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+          <option *ngFor="let owner of (ownerList$ | async)" [value]="owner._id">{{owner.fullName}}</option>
+        </select>
+      </div> -->
+      <div class="new-pet-owner">
+        <label for="ownerId">Owner</label>
+        <select id="ownerId" name="ownerId" [(ngModel)]="ownerId$">
+          <option value="">None</option>
+          <option *ngFor="let owner of (ownerList$ | async)" [value]="owner._id">{{owner.fullName}}</option>
         </select>
       </div>
-      <button type="button" class="red-button" routerLink="/pet/detail/{{pet._id}}">Cancel</button>
+      <button type="button" class="red-button" routerLink="/pet/detail/{{(pet$ | async)._id}}">Cancel</button>
       <button class="green-button">Save</button>
     </form>
   </div>
 </div>
+
+<app-loader [isLoading]="isLoading$ | async"></app-loader>

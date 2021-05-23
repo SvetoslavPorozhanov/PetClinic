@@ -20,9 +20,9 @@ function getPet(req, res, next) {
 }
 
 function createPet(req, res, next) {
-    const { fullName, kind, imageUrl, petOwnerId, appointmentTime } = req.body;
+    const { fullName, kind, imageUrl, ownerId, appointmentTime } = req.body;
 
-    petModel.create({ fullName, kind, imageUrl, ownerId: petOwnerId, appointmentTime })
+    petModel.create({ fullName, kind, imageUrl, ownerId, appointmentTime })
         .then(pet => res.status(200).json(pet))
         .catch(next);
 }
@@ -31,12 +31,26 @@ function editPet(req, res, next) {
     const { petId } = req.params;
     const { fullName, kind, imageUrl, ownerId, appointmentTime } = req.body;
 
-
-    petModel.findOneAndUpdate({ _id: petId }, { fullName, kind, imageUrl, ownerId, appointmentTime }, { new: true })
+    if (ownerId === "") {
+        Promise.all([
+            petModel.findOneAndUpdate({ _id: petId }, { fullName, kind, imageUrl, ownerId: null, appointmentTime }, { new: true }),
+            ownerModel.findOneAndUpdate({ pets: petId }, { $pull: { pets: petId } }),
+        ])
         .then(updatedPet => {
             res.status(200).json(updatedPet);
         })
         .catch(next);
+    } else {
+        Promise.all([
+            petModel.findOneAndUpdate({ _id: petId }, { fullName, kind, imageUrl, ownerId, appointmentTime }, { new: true }),
+            owner = ownerModel.findOneAndUpdate({ pets: petId },  { $pull: { pets: petId } }),
+            owner = ownerModel.findOneAndUpdate({ _id: ownerId },  { $push: { pets: petId } }),
+        ])
+        .then(updatedPet => {
+            res.status(200).json(updatedPet);
+        })
+        .catch(next);
+    }
 }
 
 function deletePetWithOwner(req, res, next) {
@@ -52,7 +66,6 @@ function deletePetWithOwner(req, res, next) {
             }
         })
         .catch(next);
-    
 }
 
 function deletePetWithoutOwner(req, res, next) {

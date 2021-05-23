@@ -44,7 +44,7 @@ function deleteOwner(req, res, next) {
 
     Promise.all([
         ownerModel.findOneAndDelete({ _id: ownerId }),
-        // petModel.findOneAndUpdate({ _id: petId }, { ownerId: null }),
+        petModel.findOneAndUpdate({ ownerId: ownerId }, { ownerId: null }),
     ])
         .then(([deletedOne, _]) => {
             if (deletedOne) {

@@ -13,7 +13,7 @@ import { PetDeleteComponent } from './delete/pet-delete.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './+store';
 import { EffectsModule } from '@ngrx/effects';
-import { PetListEffects } from './+store/effects';
+import { PetDeleteEffects, PetDetailEffects, PetEditEffects, PetListEffects, PetNewEffects } from './+store/effects';
 
 @NgModule({
   declarations: [
@@ -29,13 +29,21 @@ import { PetListEffects } from './+store/effects';
     PetRouterModule,
     FormsModule,
     EffectsModule.forFeature([
-      PetListEffects
+      PetListEffects,
+      PetDetailEffects,
+      PetEditEffects,
+      PetNewEffects,
+      PetDeleteEffects
     ]),
     StoreModule.forFeature('pet', reducers)
   ],
   providers: [
     PetService,
-    PetListEffects
+    PetListEffects,
+    PetDetailEffects,
+    PetEditEffects,
+    PetNewEffects,
+    PetDeleteEffects
   ],
   exports: [
     PetListComponent,

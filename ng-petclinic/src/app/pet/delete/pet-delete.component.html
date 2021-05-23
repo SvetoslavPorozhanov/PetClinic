@@ -18,15 +18,11 @@
     <div *ngIf="!pet.appointmentTime" class="pet-appointment-time">
       <p>No appointment</p>
     </div>
-    <div class="pet-owner">
-      <label for="petOwner">Owner <span class="red">*</span></label>
-      <select id="petOwner">
-        <option value="">None</option>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-      </select>
+    <div *ngIf="pet.ownerId" class="pet-appointment-time">
+      <p>Owner's name: {{pet.ownerId.fullName}}</p>
+    </div>
+    <div *ngIf="!pet.ownerId" class="pet-appointment-time">
+      <p>No owner</p>
     </div>
     <div class="delete-pet-buttons">
       <button type="button" routerLink="/pet" class="cancel">Cancel</button>
