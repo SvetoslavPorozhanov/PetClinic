@@ -8,6 +8,19 @@ function getAllOwners(req, res, next) {
         .catch(next);
 }
 
+function getAllOwnersOrdered(req, res, next) {
+    const { ownerId } = req.params;
+
+    ownerModel.find()
+        .then(owners => {
+            currentOwner = owners.filter(o => o._id === ownerId);
+            orderedOwners1 = owners.filter(o => o._id !== ownerId);
+            orderedOwners2 = orderedOwners1.unshift(currentOwner);
+            res.status(200).json(orderedOwners2);
+        })
+        .catch(next);
+}
+
 function getOwner(req, res, next) {
     const { ownerId } = req.params;
 
@@ -59,5 +72,6 @@ module.exports = {
     getOwner,
     getAllOwners,
     editOwner,
-    deleteOwner
+    deleteOwner,
+    getAllOwnersOrdered
 }

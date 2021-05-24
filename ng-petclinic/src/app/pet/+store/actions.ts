@@ -26,7 +26,7 @@ export const petEditPetEditLoadError = createAction(`${petEditNamespace} Load Pe
 export const petEditLoadPetEdit = createAction(`${petEditNamespace} Load Pet`);
 export const petEditLoadOwnerList = createAction(`${petEditNamespace} Load Owner List`);
 export const petEditSetOwnerList = createAction(`${petEditNamespace} Set Owner List`, props<{ ownerList: IOwner[] }>());
-export const petEditOwnerListLoadError = createAction(`${petEditNamespace} Load Pet Error`, props<{ error: string }>());
+export const petEditOwnerListLoadError = createAction(`${petEditNamespace} Load Owner Error`, props<{ error: string }>());
 
 const petListNamespace = `[PET LIST]`;
 

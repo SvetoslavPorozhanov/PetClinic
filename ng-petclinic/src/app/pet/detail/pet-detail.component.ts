@@ -15,6 +15,7 @@ export class PetDetailComponent implements OnInit, OnDestroy {
 
   pet$ = this.store.select(state => state.pet.detail.pet);
   isLoading$ = this.store.select(state => state.pet.detail.isLoading);
+  ownerId$ = this.store.select(state => state.pet.detail.pet.ownerId._id);
 
   constructor(
     petService: PetService,

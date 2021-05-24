@@ -9,6 +9,10 @@ import { OwnerDetailComponent } from './detail/owner-detail.component';
 import { NewOwnerComponent } from './new/new-owner.component';
 import { OwnerEditComponent } from './edit/owner-edit.component';
 import { OwnerDeleteComponent } from './delete/owner-delete.component';
+import { EffectsModule } from '@ngrx/effects';
+import { OwnerDeleteEffects, OwnerDetailEffects, OwnerEditEffects, OwnerListEffects } from './+store/effects';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './+store';
 
 @NgModule({
   declarations: [
@@ -22,10 +26,23 @@ import { OwnerDeleteComponent } from './delete/owner-delete.component';
     CommonModule,
     SharedModule,
     OwnerRouterModule,
-    FormsModule
+    FormsModule,
+    EffectsModule.forFeature([
+      OwnerListEffects,
+      OwnerDetailEffects,
+      OwnerEditEffects,
+      // PetNewEffects,
+      OwnerDeleteEffects
+    ]),
+    StoreModule.forFeature('owner', reducers)
   ],
   providers: [
-    OwnerService
+    OwnerService,
+    OwnerListEffects,
+    OwnerDetailEffects,
+    OwnerEditEffects,
+    // PetNewEffects,
+    OwnerDeleteEffects
   ],
   exports: [
     OwnerListComponent,

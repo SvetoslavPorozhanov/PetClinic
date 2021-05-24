@@ -6,6 +6,7 @@ const { ownerController } = require('../controllers');
 // middleware that is specific to this router
 
 router.get('/', ownerController.getAllOwners);
+router.get('/ordered/:ownerId', ownerController.getAllOwnersOrdered);
 router.post('/', auth(), ownerController.createOwner);
 
 router.get('/:ownerId', ownerController.getOwner);

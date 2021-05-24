@@ -15,6 +15,10 @@ export class OwnerService {
     return this.http.get<IOwner[]>(`/owners`);
   }
 
+  loadOwnerListOrdered(ownerId: string): Observable<IOwner[]> {
+    return this.http.get<IOwner[]>(`/owners/ordered/${ownerId}`);
+  }
+
   loadOwner(id: string): Observable<IOwner> {
     return this.http.get<IOwner>(`/owners/${id}`);
   }
