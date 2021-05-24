@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppointmentListEffects } from './+store/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './+store';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { reducers } from './+store';
     CommonModule,
     RouterModule,
     SharedModule,
+    FormsModule,
     EffectsModule.forFeature([
       AppointmentListEffects
     ]),

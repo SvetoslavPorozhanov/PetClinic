@@ -1,7 +1,10 @@
 const { ownerModel, petModel } = require('../models');
 
 function getAllPets(req, res, next) {
-    petModel.find()
+    const petName = req.query.petName;
+    var condition = petName ? { fullName: { $regex: new RegExp(petName), $options: "i" } } : {};
+
+    petModel.find(condition)
         .sort({ appointmentTime: 1 })
         .populate('ownerId')
         .then(pets => {

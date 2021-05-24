@@ -14,4 +14,8 @@ export class AppointmentService {
   loadAppointmentsList(): Observable<IPet[]> {
     return this.http.get<IPet[]>(`/pets`);
   }
+
+  findByName(name: string): Observable<any> {
+    return this.http.get(`/pets?petName=${name}`);
+  }
 }

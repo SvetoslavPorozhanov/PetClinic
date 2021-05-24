@@ -5,6 +5,7 @@ import { IAppointmentModuleState } from '../+store';
 import { Store } from '@ngrx/store';
 import { appointmentListClear, appointmentListLoadAppointmentList } from '../+store/actions';
 import { map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-patients-list',
@@ -21,6 +22,7 @@ export class PatientsListComponent implements AfterViewInit, OnDestroy {
                          timePieces[0], timePieces[1]))
 };
 
+  petName = '';
   appointmentList$ = this.store.select(state => state.appointment.list.appointmentList);
   isLoading$ = this.store.select(state => state.appointment.list.isLoading);
   allPetsWithAppointmentTime$ = this.appointmentList$.pipe(map(pet => pet.filter(p => !!p.appointmentTime)));
@@ -28,7 +30,10 @@ export class PatientsListComponent implements AfterViewInit, OnDestroy {
   countOfWaitingPetsWithAppointmentTime$ = this.allPetsWithAppointmentTime$.pipe(map(pet => pet.filter(p => this.convertFromStringToDate(p.appointmentTime) > new Date()).length));
   countOfExaminedPetsWithAppointmentTime$ = this.allPetsWithAppointmentTime$.pipe(map(pet => pet.filter(p => this.convertFromStringToDate(p.appointmentTime) <= new Date()).length));
 
-  constructor(private store: Store<IAppointmentModuleState>) {
+  constructor(
+    private store: Store<IAppointmentModuleState>,
+    private appointmentService: AppointmentService,
+    ) {
     this.store.dispatch(appointmentListLoadAppointmentList());
   }
 
@@ -38,5 +43,17 @@ export class PatientsListComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.store.dispatch(appointmentListClear());
+  }
+
+  submitHandler(data: string): void {
+    this.appointmentService.findByName(this.petName)
+      .subscribe(
+        data => {
+          this.appointmentList$ = of(data);
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }
