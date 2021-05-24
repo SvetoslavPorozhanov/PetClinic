@@ -47,7 +47,7 @@
         <label for="ownerId">Owner</label>
         <select id="ownerId" name="ownerId" [(ngModel)]="ownerId$">
           <option value="">None</option>
-          <option  *ngFor="let owner of (ownerList$ | async)" [value]="owner._id" [selected]="owner._id == (pet$ | async).ownerId._id">{{owner.fullName}}</option>
+          <option  *ngFor="let owner of (ownerList$ | async)" [value]="owner._id">{{owner.fullName}}</option>
         </select>
       </div>
       <button type="button" class="red-button" routerLink="/pet/detail/{{(pet$ | async)._id}}">Cancel</button>

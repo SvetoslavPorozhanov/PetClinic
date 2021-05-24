@@ -1,5 +1,19 @@
 <ul>
     <div *ngIf="appointmentList$ | async">
+        <div>
+            <div class="pet_text">
+                <h3>Waiting:</h3>
+                <h3>{{countOfWaitingPetsWithAppointmentTime$ | async}}</h3>
+            </div>
+            <div class="pet_text">
+                <h3>Examined:</h3>
+                <h3>{{countOfExaminedPetsWithAppointmentTime$ | async}}</h3>
+            </div>
+            <div class="pet_text">
+                <h3>All:</h3>
+                <h3>{{countOfAllPetsWithAppointmentTime$ | async}}</h3>
+            </div>
+        </div>
         <div *ngFor="let pet of (appointmentList$ | async)">
             <li class="row_appointments">
                 <section class="pet">
