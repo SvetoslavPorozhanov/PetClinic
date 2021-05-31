@@ -1,9 +1,9 @@
-<ul>
+<ul class="flex-col">
     <li>
-        <a routerLink="/pet/new">New Pet</a>
+        <a  routerLink="/pet/new">New Pet</a>
     </li>
-    <div *ngIf="petList$ | async">
-        <div *ngFor="let pet of (petList$ | async)">
+    <div class="flex-row" *ngIf="petList$ | async">
+        <div class="pet-item" *ngFor="let pet of (petList$ | async)">
             <li class="row_appointments">
                 <section class="pet">
                     <div class="pet_text">
@@ -46,14 +46,16 @@
                     </div>
                 </section>
             </li>
-            <li>
-                <a routerLink="/pet/detail/{{pet._id}}">Pet Details</a>
-            </li>
-            <li>
-                <a routerLink="/pet/delete/{{pet._id}}">Delete Pet</a>
-            </li>
+            <div class="flex-row btn-container">
+                <li>
+                    <a routerLink="/pet/detail/{{pet._id}}">Pet Details</a>
+                </li>
+                <li>
+                    <a routerLink="/pet/delete/{{pet._id}}">Delete Pet</a>
+                </li>
+            </div>
         </div>
-        <div *ngIf="(petList$ | async).length === 0">No Pets!</div>
+        <div class="pet-item" *ngIf="(petList$ | async).length === 0">No Pets!</div>
     </div>
     <div *ngIf="!(petList$ | async)">
         Loading...

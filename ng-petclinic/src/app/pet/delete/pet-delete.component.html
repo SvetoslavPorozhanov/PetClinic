@@ -1,8 +1,8 @@
 <div class="pet-content" *ngIf="pet">
+  <div class="header-background">
+    <span>Are you sure you want to delete this?</span>
+  </div>
   <div class="pet-border">
-    <div class="header-background">
-      <span>Are you sure you want to delete this?</span>
-    </div>
     <div class="pet-fullname">
       <p>Fullname: {{pet.fullName}}</p>
     </div>
@@ -24,7 +24,7 @@
     <div *ngIf="!pet.ownerId" class="pet-appointment-time">
       <p>No owner</p>
     </div>
-    <div class="delete-pet-buttons">
+    <div class="pet-delete-buttons">
       <button type="button" routerLink="/pet" class="cancel">Cancel</button>
       <button class="public" (click)="submitHandler()">Delete</button>
     </div>

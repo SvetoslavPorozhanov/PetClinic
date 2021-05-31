@@ -17,22 +17,24 @@ body{
     font-size: 16px;
 }
 
-app-header{
-    background-color: rgba(226, 214, 214, 0.575);
-    margin: 0 0 2em 0;
-    padding: 1.5em;
-}
-
 h1{
     font-size: 4em;
     text-align: center;
     margin-bottom: 0.3em;
-    color: rgb(155, 15, 15);
+    color: rgb(218, 197, 197);
+    background-color: rgb(155, 15, 15);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-app-patients-list{
+/* app-patients-list{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,31 +84,14 @@ ul{
     display: flex;
     justify-content: center;
 }
+ */
 
 
 
-app-footer div {
-    background-color: rgb(140, 14, 14);
-    color: rgb(218, 197, 197);
-    
-    display: flex;
-    justify-content: center;
-}
-
-app-footer ul{
-    margin: 2em 5em 2em 5em;
-}
-
-app-footer ul li {
-    margin: 0.5em 0 0 0;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
 
 
 
-/* responsive */
+/* responsive
 
 @media only screen and (max-width: 1236px) {
     .row_appoitments {
@@ -142,4 +127,4 @@ app-footer ul li {
     header app-header h3 {
         font-size: 1em;
     }
-}
+} */

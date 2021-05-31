@@ -1,0 +1,87 @@
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: rgb(218, 197, 197);
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.5em;
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+a:hover {
+  color: #08B1A2;
+}
+
+div > li > a {
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  margin-bottom: 20px;;
+}
+
+img {
+  max-height: 200px;
+  width: auto;
+}
+
+.image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet_text, .owner_text, .appoitment_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+.pet_text {
+  margin: 0 0 20px 0;
+}
+
+.owner_text, .appoitment_text {
+  margin: 20px 0;
+}
+
+.pet-item {
+  margin: 0 5px;
+  border: 5px solid rgb(155, 15, 15);
+  border-radius: 20px;
+  background-color: #08B1A2;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-right: 5px;
+}
+
+ul > li {
+  margin-bottom: 20px;
+}

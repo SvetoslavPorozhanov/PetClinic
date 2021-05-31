@@ -1,0 +1,31 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: rgb(218, 197, 197);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #08B1A2;
+}
+
+
+li {
+  margin: 10px;
+  font-size: 1.5em;
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+li:hover {
+  cursor: pointer;
+}

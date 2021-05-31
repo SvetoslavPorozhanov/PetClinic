@@ -2,37 +2,43 @@
 
 .welcome {
   padding: 0.3em 0.5em;
-  border: 1px solid #999;
-  border-radius: 0.3em;
-  font-size: 0.8em;
+  font-size: 1.5em;
   margin-top: 1em;
+  
 }
 
 .welcome h3 {
   background-color: #4ebced;
   border-radius: 0.3em;
-  width: 100%;
   padding: 0.3em 1em;
+  display: inline-block;
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
 .welcome p {
   padding: 1em;
   border-bottom: 1px solid #999;
   font-style: normal;
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  border-radius: 20px;
 }
 
 .welcome a {
-  color: white;
   text-decoration: none;
-  background-color: #4ebced;
-  border: none;
-  border-radius: 0.3em;
-  padding: 0.5em 5.2em;
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  border-radius: 20px;
+  padding: 0.5em 1em;
   margin: 1em;
 }
 
 .welcome a:hover {
   cursor: pointer;
+  color: #08B1A2;
 }
 
 .welcome ul {
@@ -44,4 +50,11 @@
 
 .welcome li {
   list-style: none;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

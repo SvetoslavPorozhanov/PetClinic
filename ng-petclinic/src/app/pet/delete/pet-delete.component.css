@@ -1,0 +1,81 @@
+.pet-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 640px;
+}
+
+.header-background {
+  text-align: center;
+  margin: 20px 0;
+}
+
+div > span {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+}
+
+.pet-kind > p .pet-appointment-time > p {
+  margin: 20px 0;
+}
+
+.pet-fullname,
+.pet-kind,
+.pet-appointment-time,
+.pet-owner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+.pet-kind,
+.pet-appointment-time,
+.pet-owner {
+  margin: 10px 0;
+}
+
+.pet-fullname {
+  margin-bottom: 10px;
+}
+
+img {
+  max-height: 400px;
+  width: auto;
+}
+
+.pet-border {
+  border: 5px solid rgb(155, 15, 15);
+  border-radius: 20px;
+  background-color: #08B1A2;
+  margin-bottom: 20px;
+}
+
+.pet-delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  color: #08B1A2;
+}

@@ -1,0 +1,77 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2, .account {
+  background-color: rgb(140, 14, 14);
+  color: rgb(218, 197, 197);
+  display: inline-block;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+form {
+  min-height: 640px;
+}
+
+i {
+  color: rgb(140, 14, 14);
+  font-size: 1.5em;
+}
+
+.error {
+  color: rgb(140, 14, 14);
+  background-color: rgb(218, 197, 197);
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+button {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  color: #08B1A2;
+}
+
+a {
+  text-decoration: none;
+  background-color: rgb(140, 14, 14);
+  color: rgb(218, 197, 197);
+  display: inline-block;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
+a:hover {
+  color: #08B1A2;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.account {
+  margin: auto 0 auto 0;
+}
+
+input, option, select {
+  font-size: 1.5em;
+}
+

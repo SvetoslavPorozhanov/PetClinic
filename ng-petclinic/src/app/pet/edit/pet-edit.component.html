@@ -5,7 +5,7 @@
     </div>
     <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
       <div class="flex">
-        <p>Fullname: </p>
+        <label for="fullName">Fullname:<span class="red">*</span></label>
         <input #fullName="ngModel" type="text" name="fullName" id="fullName" [ngModel]="(pet$ | async).fullName" ngModel
           required minlength="5">
         <p class="error" *ngIf="fullName.touched && fullName.errors?.required">
@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="flex">
-        <p>Image: </p>
+        <label for="imageUrl">Image:<span class="red">*</span></label>
         <input #imageUrl="ngModel" type="text" name="imageUrl" id="imageUrl" ngModel required
           [ngModel]="(pet$ | async).imageUrl">
         <p class="error" *ngIf="imageUrl.touched && imageUrl.errors?.required">
@@ -24,14 +24,14 @@
         </p>
       </div>
       <div class="flex">
-        <p>Kind: </p>
+        <label for="kind">Kind: <span class="red">*</span></label>
         <input #kind="ngModel" type="text" name="kind" id="kind" ngModel required [ngModel]="(pet$ | async).kind">
         <p class="error" *ngIf="kind.touched && kind.errors?.required">
           Kind is required.
         </p>
       </div>
       <div class="flex">
-        <p>Appointment Time: </p>
+        <label for="appointmentTime">Appointment Time: </label>
         <input #appointmentTime="ngModel" type="text" name="appointmentTime" id="appointmentTime" ngModel required
           [ngModel]="(pet$ | async).appointmentTime">
       </div>
@@ -43,15 +43,17 @@
           <option *ngFor="let owner of (ownerList$ | async)" [value]="owner._id">{{owner.fullName}}</option>
         </select>
       </div> -->
-      <div class="new-pet-owner">
+      <div class="edit-pet-owner">
         <label for="ownerId">Owner</label>
         <select id="ownerId" name="ownerId" [(ngModel)]="ownerId$">
           <option value="">None</option>
           <option  *ngFor="let owner of (ownerList$ | async)" [value]="owner._id">{{owner.fullName}}</option>
         </select>
       </div>
-      <button type="button" class="red-button" routerLink="/pet/detail/{{(pet$ | async)._id}}">Cancel</button>
-      <button class="green-button">Save</button>
+      <div class="EDIT-pet-buttons">
+        <button type="button" class="red-button" routerLink="/pet/detail/{{(pet$ | async)._id}}">Cancel</button>
+        <button class="green-button">Save</button>
+      </div>
     </form>
   </div>
 </div>

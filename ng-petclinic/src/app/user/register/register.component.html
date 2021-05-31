@@ -1,6 +1,6 @@
 <form [formGroup]="form" class="register" (ngSubmit)="submitHandler()">
 
-  <fieldset>
+  <fieldset class="flex">
     <h2>Registration Form</h2>
 
     <!-- username -->
@@ -61,10 +61,12 @@
     <button [disabled]="(isLoading$ | async) || form.invalid">Create Account</button>
     <app-loader [isLoading]="isLoading$ | async"></app-loader>
 
-    <p class="text-center">
-      Have an account?
-      <a routerLink="/user/login">Log In</a>
-    </p>
+    <div class="flex-row">
+      <p class="account">
+        Have an account?
+      </p>
+      <a class="account" routerLink="/user/login">Log In</a>
+    </div>
 
   </fieldset>
 </form>

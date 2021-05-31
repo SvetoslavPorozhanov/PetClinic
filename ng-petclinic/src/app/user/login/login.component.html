@@ -1,6 +1,6 @@
 <form #f="ngForm" class="login" (ngSubmit)="submitFormHandler(f.value)">
 
-  <fieldset>
+  <fieldset class="flex">
     <h2>Login Form</h2>
 
     <p class="field field-icon">
@@ -35,10 +35,12 @@
     <button [disabled]="(isLoading$ | async) || f.invalid">Login</button>
     <app-loader [isLoading]="(isLoading$ | async)"></app-loader>
 
-    <p class="text-center">
-      Have an account?
+    <div class="flex-row">
+      <p class="account">
+        Have an account?
+      </p>
       <a routerLink="/user/register">Register</a>
-    </p>
-
+    </div>
+    
   </fieldset>
 </form>

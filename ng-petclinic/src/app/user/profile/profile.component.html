@@ -18,22 +18,24 @@
   <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
     <div class="flex">
       <p>Username: </p>
-      <input #username="ngModel" type="text" name="username" id="username" [ngModel]="(currentUser$ | async)?.username" ngModel required minlength="5">
+      <input #username="ngModel" type="text" name="username" id="username" [ngModel]="(currentUser$ | async)?.username"
+        ngModel required minlength="5">
       <p class="error" *ngIf="username.touched && username.errors?.required">
         Username is required.
       </p>
       <p class="error" *ngIf="username.touched && username.errors?.minlength">
-       Username must be at least 5 characters long.
+        Username must be at least 5 characters long.
       </p>
     </div>
     <div class="flex">
       <p>Email: </p>
-      <input #email="ngModel" type="email" name="email" id="email" [ngModel]="(currentUser$ | async)?.email" ngModel required email>
+      <input #email="ngModel" type="email" name="email" id="email" [ngModel]="(currentUser$ | async)?.email" ngModel
+        required email>
       <p class="error" *ngIf="email.touched && email.errors?.required">
         Email is required.
       </p>
       <p class="error" *ngIf="email.touched && email.errors?.email">
-       Email must be valid.
+        Email must be valid.
       </p>
     </div>
     <div class="flex">
@@ -42,7 +44,8 @@
         <select name="select-tel" id="select-tel" class="tel">
           <option value="00359">+359</option>
         </select>
-        <input #tel="ngModel" type="text" name="tel" id="tel" value="885 888 888" [ngModel]="(currentUser$ | async)?.tel" ngModel required>
+        <input #tel="ngModel" type="text" name="tel" id="tel" value="885 888 888"
+          [ngModel]="(currentUser$ | async)?.tel" ngModel required>
         <p class="error" *ngIf="tel.touched && tel.errors?.required">
           Telephone is required.
         </p>
@@ -55,8 +58,10 @@
   </form>
 </ng-template>
 
-<div class="profile">
-  <img src="/assets/profile.png" alt="default user">
-  <h3>User Info:</h3>
-  <ng-container *ngTemplateOutlet="(inEditMode$ |async) ? editMode : defaultMode"></ng-container>
+<div class="container">
+  <div class="profile">
+    <img src="/assets/profile.png" alt="default user">
+    <h3>User Info:</h3>
+    <ng-container *ngTemplateOutlet="(inEditMode$ |async) ? editMode : defaultMode"></ng-container>
+  </div>
 </div>

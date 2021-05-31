@@ -1,8 +1,8 @@
 <div class="pet-content" *ngIf="!(isLoading$ | async)">
+  <div class="header-background">
+    <span>Pet Details</span>
+  </div>
   <div class="pet-border" *ngIf="(pet$ | async)">
-    <div class="header-background">
-      <span>Pet Details</span>
-    </div>
     <div class="pet-fullname">
       <p>Fullname: {{(pet$ | async).fullName}}</p>
     </div>
@@ -18,13 +18,13 @@
     <div *ngIf="!(pet$ | async).appointmentTime" class="pet-appointment-time">
       <p>No appointment</p>
     </div>
-    <div *ngIf="(pet$ | async).ownerId" class="pet-appointment-time">
+    <div *ngIf="(pet$ | async).ownerId" class="pet-owner">
       <p>Owner's name: {{(pet$ | async).ownerId.fullName}}</p>
     </div>
-    <div *ngIf="!(pet$ | async).ownerId" class="pet-appointment-time">
+    <div *ngIf="!(pet$ | async).ownerId" class="pet-owner">
       <p>No owner</p>
     </div>
-    <div class="pet-buttons">
+    <div class="pet-details-buttons">
       <button routerLink="/pet" class="cancel">Back</button>
       <button class="public" routerLink="/pet/edit/{{(pet$ | async)._id}}">Edit</button>
     </div>

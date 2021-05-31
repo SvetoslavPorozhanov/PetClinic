@@ -1,40 +1,51 @@
 <header *ngIf="isReady$ | async">
-<div >
-    <nav>
-        <ul>
-            <li *ngIf="!(isLogged$ | async)">
-                <a routerLink="/home">Home</a>
-            </li>
-            <li *ngIf="!(isLogged$ | async)">
-                <a routerLink="/user/login">Login</a>
-            </li>
-            <li *ngIf="!(isLogged$ | async)">
-                <a routerLink="/user/register">Register</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<div >
-    <nav>
-        <ul>
-            <li *ngIf="isLogged$ | async">
-                <a routerLink="/home">Home</a>
-            </li>
-            <li *ngIf="isLogged$ | async">
-                <a routerLink="/pet">Pets</a>
-            </li>
-            <li *ngIf="isLogged$ | async">
-                <a routerLink="/owner">Owners</a>
-            </li>
-            <li *ngIf="isLogged$ | async">
-                <a routerLink="/user/profile">Profile</a>
-            </li>
-            <li *ngIf="isLogged$ | async">
-                <a (click)="logoutHandler()">Logout</a>
-            </li>
-        </ul>
-        
-    </nav>
-</div>
-<h1>The Pet Clinic</h1>
+    <div>
+        <nav>
+            <ul class="flex">
+                <div>
+                    <li *ngIf="!(isLogged$ | async)">
+                        <a routerLink="/home">Home</a>
+                    </li>
+                </div>
+                <div class="flex">
+                    <li *ngIf="!(isLogged$ | async)">
+                        <a routerLink="/user/login">Login</a>
+                    </li>
+                    <li *ngIf="!(isLogged$ | async)">
+                        <a routerLink="/user/register">Register</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <nav>
+            <ul class="flex">
+                <div class="flex">
+                    <li *ngIf="isLogged$ | async">
+                        <a routerLink="/home">Home</a>
+                    </li>
+                    <li *ngIf="isLogged$ | async">
+                        <a routerLink="/pet">Pets</a>
+                    </li>
+                    <li *ngIf="isLogged$ | async">
+                        <a routerLink="/owner">Owners</a>
+                    </li>
+                </div>
+                <div class="flex"> 
+                <li *ngIf="isLogged$ | async">
+                    <a routerLink="/user/profile">Profile</a>
+                </li>
+                <li *ngIf="isLogged$ | async">
+                    <a (click)="logoutHandler()">Logout</a>
+                </li>
+            </div>
+            </ul>
+
+        </nav>
+    </div>
+    <div class="title">
+        <h1>The Pet Clinic</h1>
+    </div>
+
 </header>
