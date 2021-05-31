@@ -18,10 +18,10 @@
     <div *ngIf="!pet.appointmentTime" class="pet-appointment-time">
       <p>No appointment</p>
     </div>
-    <div *ngIf="pet.ownerId" class="pet-appointment-time">
+    <div *ngIf="pet.ownerId" class="pet-owner">
       <p>Owner's name: {{pet.ownerId.fullName}}</p>
     </div>
-    <div *ngIf="!pet.ownerId" class="pet-appointment-time">
+    <div *ngIf="!pet.ownerId" class="pet-owner">
       <p>No owner</p>
     </div>
     <div class="pet-delete-buttons">

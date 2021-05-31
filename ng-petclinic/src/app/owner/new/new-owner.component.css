@@ -1,0 +1,70 @@
+.owner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 640px;
+}
+
+.header-background {
+  text-align: center;
+  margin: 20px 0;
+}
+
+div > span {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+}
+
+label {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+input, option, select {
+  font-size: 1.5em;
+}
+
+.new-owner-fullname,
+.new-owner-image,
+.new-owner-email,
+.new-owner-tel {
+  margin: 20px 0;
+}
+
+.error {
+  display: inline-block;
+  margin: 20px 0;
+  color: rgb(140, 14, 14);
+  background-color: rgb(218, 197, 197);
+}
+
+.new-owner-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+}
+
+button:hover {
+  color: #08B1A2;
+}
+
+input {
+  margin-right: 10px;
+}

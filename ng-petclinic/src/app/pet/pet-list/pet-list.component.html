@@ -55,7 +55,7 @@
                 </li>
             </div>
         </div>
-        <div class="pet-item" *ngIf="(petList$ | async).length === 0">No Pets!</div>
+        <div class="no-pets" *ngIf="(petList$ | async).length === 0">No Pets!</div>
     </div>
     <div *ngIf="!(petList$ | async)">
         Loading...

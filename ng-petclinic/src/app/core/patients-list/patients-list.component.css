@@ -5,8 +5,9 @@ button {
 .flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  min-height: 640px;
 }
 
 button {
@@ -61,7 +62,7 @@ ul {
   list-style-type: none;
 }
 
-.pet_text, .owner_text, .appoitment_text {
+.pet_text, .owner_text, .appoitment_text, .no-appointments {
   display: flex;
   flex-direction: row;
   justify-content: center;

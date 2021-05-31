@@ -1,0 +1,110 @@
+.owner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 640px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-background {
+  text-align: center;
+  margin: 20px 0;
+}
+
+div > span {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+}
+
+.owner-fullname,
+.owner-image,
+.owner-email,
+.owner-tel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.owner-fullname,
+.owner-email,
+.owner-tel {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+.pet-fullname,
+.pet-image,
+.pet-kind,
+.pet-appointment-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-fullname,
+.pet-kind,
+.pet-appointment-time,
+.no-pets {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+.owner-image,
+.owner-email {
+  margin: 10px 0;
+}
+
+.pet-image,
+.pet-kind {
+  margin: 10px 0;
+}
+
+img {
+  max-height: 400px;
+  width: auto;
+}
+
+.pet-border, .owner-border {
+  border: 5px solid rgb(155, 15, 15);
+  border-radius: 20px;
+  background-color: #08B1A2;
+  margin: 0 20px 20px 20px;
+}
+
+.pet-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  color: rgb(218, 197, 197);
+  background-color: rgb(155, 15, 15);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin: 10px 30px;
+}
+
+button:hover {
+  color: #08B1A2;
+}

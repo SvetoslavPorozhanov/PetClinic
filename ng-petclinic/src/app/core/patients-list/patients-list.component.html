@@ -70,7 +70,7 @@
                     </li>
                 </div>
             </div>
-            <div class="appointments" *ngIf="(appointmentList$ | async).length === 0">No Appoitments!</div>
+            <div class="no-appointments" *ngIf="(appointmentList$ | async).length === 0">No Appoitments!</div>
         </div>
         <div *ngIf="!(appointmentList$ | async)">
             Loading...

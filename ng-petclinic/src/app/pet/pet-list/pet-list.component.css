@@ -1,8 +1,9 @@
 .flex-col {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  min-height: 640px;
 }
 
 .flex-row {
@@ -50,7 +51,7 @@ img {
   align-items: center;
 }
 
-.pet_text, .owner_text, .appoitment_text {
+.pet_text, .owner_text, .appoitment_text, .no-pets {
   display: flex;
   flex-direction: row;
   justify-content: center;
