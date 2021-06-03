@@ -25,9 +25,17 @@ function getPet(req, res, next) {
 function createPet(req, res, next) {
     const { fullName, kind, imageUrl, ownerId, appointmentTime } = req.body;
 
-    petModel.create({ fullName, kind, imageUrl, ownerId, appointmentTime })
+    if (ownerId === "") {
+        petModel.create({ fullName, kind, imageUrl, appointmentTime })
         .then(pet => res.status(200).json(pet))
         .catch(next);
+    } else {
+        petModel.create({ fullName, kind, imageUrl, ownerId, appointmentTime })
+        .then(pet => res.status(200).json(pet))
+        .catch(next);
+    }
+
+    
 }
 
 function editPet(req, res, next) {

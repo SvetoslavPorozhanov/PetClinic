@@ -38,7 +38,7 @@ export class NewPetComponent implements OnInit, OnDestroy {
           console.log(data);
         },
         error: (err) => {
-
+          window.alert(err.message);
         }
       });
   }
