@@ -9,7 +9,9 @@
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   align-items: center;
 }
 

@@ -27,15 +27,16 @@ function createPet(req, res, next) {
 
     if (ownerId === "") {
         petModel.create({ fullName, kind, imageUrl, appointmentTime })
-        .then(pet => res.status(200).json(pet))
-        .catch(next);
+            .then(pet => res.status(200).json(pet))
+            .catch(next);
     } else {
-        petModel.create({ fullName, kind, imageUrl, ownerId, appointmentTime })
-        .then(pet => res.status(200).json(pet))
-        .catch(next);
-    }
 
-    
+        newPet = petModel.create({ fullName, kind, imageUrl, ownerId, appointmentTime })
+            .then(newPet => owner = ownerModel.findOneAndUpdate({ _id: ownerId }, { $push: { pets: newPet._id } }))
+            .then(pet => res.status(200).json(pet))
+            .catch(next);
+
+    }
 }
 
 function editPet(req, res, next) {
@@ -47,20 +48,20 @@ function editPet(req, res, next) {
             petModel.findOneAndUpdate({ _id: petId }, { fullName, kind, imageUrl, ownerId: null, appointmentTime }, { new: true }),
             ownerModel.findOneAndUpdate({ pets: petId }, { $pull: { pets: petId } }),
         ])
-        .then(updatedPet => {
-            res.status(200).json(updatedPet);
-        })
-        .catch(next);
+            .then(updatedPet => {
+                res.status(200).json(updatedPet);
+            })
+            .catch(next);
     } else {
         Promise.all([
             petModel.findOneAndUpdate({ _id: petId }, { fullName, kind, imageUrl, ownerId, appointmentTime }, { new: true }),
-            owner = ownerModel.findOneAndUpdate({ pets: petId },  { $pull: { pets: petId } }),
-            owner = ownerModel.findOneAndUpdate({ _id: ownerId },  { $push: { pets: petId } }),
+            owner = ownerModel.findOneAndUpdate({ pets: petId }, { $pull: { pets: petId } }),
+            owner = ownerModel.findOneAndUpdate({ _id: ownerId }, { $push: { pets: petId } }),
         ])
-        .then(updatedPet => {
-            res.status(200).json(updatedPet);
-        })
-        .catch(next);
+            .then(updatedPet => {
+                res.status(200).json(updatedPet);
+            })
+            .catch(next);
     }
 }
 
@@ -91,7 +92,7 @@ function deletePetWithoutOwner(req, res, next) {
             }
         })
         .catch(next);
-    
+
 }
 
 module.exports = {
